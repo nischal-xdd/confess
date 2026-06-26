@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurukul Confession</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans flex flex-col justify-between">
+
+    <div>
+        <!-- Header -->
+        <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-10">
+            <div class="max-w-3xl mx-auto px-4 py-4 flex justify-between items-center">
+                <h1 id="adminTrigger" class="text-2xl font-black tracking-tight text-indigo-400 cursor-pointer select-none active:scale-95 transition-transform" title="Click multiple times for admin access">
+                    Gurukul Confession.
+                </h1>
+                <span class="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded-full border border-slate-700">🔒 Fully Anonymous</span>
+            </div>
+        </header>
+
+        <main class="max-w-3xl mx-auto px-4 py-12 space-y-8">
+            
+            <!-- Main Confession Form View -->
+            <section id="userView" class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 shadow-xl">
+                <h2 class="text-lg font-bold mb-2">Spill your secret...</h2>
+                <p class="text-slate-400 text-sm mb-4">No names, no tracking. Just get it off your chest.</p>
+                
+                <form id="confessionForm" class="space-y-5">
+                    <!-- Confession Textarea -->
+                    <textarea 
+                        id="confessionInput"
+                        rows="5" 
+                        maxlength="500"
+                        required
+                        placeholder="Type your anonymous confession here..."
+                        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none transition-all"
+                    ></textarea>
+                    
+                    <!-- REQUIRED CHOICE MENU: Grade 11 and Grade 12 -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Select Grade <span class="text-rose-400">*</span></label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button type="button" id="btnGrade11" onclick="selectGrade('Grade 11')" class="py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:border-indigo-500 transition-all font-medium text-sm text-center">
+                                Grade 11
+                            </button>
+                            <button type="button" id="btnGrade12" onclick="selectGrade('Grade 12')" class="py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:border-indigo-500 transition-all font-medium text-sm text-center">
+                                Grade 12
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SECTION TYPING: Input directly below choices -->
+                    <div class="space-y-2">
+                        <label for="sectionInput" class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Section <span class="text-rose-400">*</span></label>
+                        <input 
+                            type="text" 
+                            id="sectionInput" 
+                            required
+                            placeholder="e.g., A, Einstein, Management-B" 
+                            class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3.5 text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-sm"
+                        />
+                    </div>
+                    
+                    <!-- Bottom row: Count & Submit Button -->
+                    <div class="flex justify-between items-center text-xs text-slate-500 pt-2 border-t border-slate-800">
+                        <span id="charCount">0 / 500 characters</span>
+                        <button 
+                            type="submit" 
+                            class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-6 py-2.5 rounded-xl transition-colors shadow-lg shadow-indigo-600/20"
+                        >
+                            Whisper into the void →
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Hidden Admin Panel View -->
+            <section id="adminPanel" class="hidden bg-slate-800 border border-indigo-500/40 rounded-2xl p-6 shadow-2xl space-y-4">
+                <div class="flex justify-between items-center border-b border-slate-700 pb-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-indigo-400">🛡️ Admin Dashboard</h2>
+                        <p class="text-xs text-slate-400">Viewing all anonymous submissions</p>
+                    </div>
+                    <button id="closeAdminBtn" class="bg-slate-700 hover:bg-slate-600 text-xs px-3 py-1.5 rounded-lg transition-colors">
+                        Exit Admin View
+                    </button>
+                </div>
+
+                <!-- Admin Feed List -->
+                <div id="adminFeed" class="space-y-3 max-h-[450px] overflow-y-auto pr-2">
+                    <!-- Confessions will be dynamically injected here -->
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Minimalist Footer -->
+    <footer class="text-center py-6 text-xs text-slate-600 border-t border-slate-800/50">
+        Gurukul Confession Box.
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // DOM Elements
+        const form = document.getElementById('confessionForm');
+        const input = document.getElementById('confessionInput');
+        const sectionInput = document.getElementById('sectionInput');
+        const charCount = document.getElementById('charCount');
+        const adminTrigger = document.getElementById('adminTrigger');
+        const adminPanel = document.getElementById('adminPanel');
+        const userView = document.getElementById('userView');
+        const closeAdminBtn = document.getElementById('closeAdminBtn');
+        const adminFeed = document.getElementById('adminFeed');
+
+        // Grade Selection State Variable
+        let selectedGrade = "";
+
+        // Function to toggle selection highlight between Grade buttons
+        function selectGrade(grade) {
+            selectedGrade = grade;
+            const btn11 = document.getElementById('btnGrade11');
+            const btn12 = document.getElementById('btnGrade12');
+
+            if (grade === 'Grade 11') {
+                btn11.className = "py-3 px-4 rounded-xl border-2 border-indigo-500 bg-indigo-600/20 text-white transition-all font-semibold text-sm text-center shadow-md shadow-indigo-500/10";
+                btn12.className = "py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 hover:border-slate-600 transition-all font-medium text-sm text-center";
+            } else {
+                btn12.className = "py-3 px-4 rounded-xl border-2 border-indigo-500 bg-indigo-600/20 text-white transition-all font-semibold text-sm text-center shadow-md shadow-indigo-500/10";
+                btn11.className = "py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 hover:border-slate-600 transition-all font-medium text-sm text-center";
+            }
+        }
+
+        // Reset Grade Button Styles on form submission
+        function resetGradeButtons() {
+            selectedGrade = "";
+            document.getElementById('btnGrade11').className = "py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:border-indigo-500 transition-all font-medium text-sm text-center";
+            document.getElementById('btnGrade12').className = "py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:border-indigo-500 transition-all font-medium text-sm text-center";
+        }
+
+        // Character counter logic
+        input.addEventListener('input', () => {
+            charCount.textContent = `${input.value.length} / 500 characters`;
+        });
+
+        /* ==========================================
+           PRODUCTION DATABASE CONNECTOR (PLACEHOLDER)
+        ============================================= */
+        function getDatabaseConfessions() {
+            return JSON.parse(localStorage.getItem('productionConfessions')) || [];
+        }
+
+        function saveToDatabase(newConfession) {
+            const currentData = getDatabaseConfessions();
+            currentData.unshift(newConfession);
+            localStorage.setItem('productionConfessions', JSON.stringify(currentData));
+        }
+
+        function deleteFromDatabase(id) {
+            let currentData = getDatabaseConfessions();
+            currentData = currentData.filter(item => item.id !== id);
+            localStorage.setItem('productionConfessions', JSON.stringify(currentData));
+            renderAdminFeed(); 
+        }
+        /* ========================================== */
+
+        // Handle Form Submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Check if grade selection was made
+            if (!selectedGrade) {
+                alert("Please select either Grade 11 or Grade 12 before whispering.");
+                return;
+            }
+
+            const text = input.value.trim();
+            const section = sectionInput.value.trim();
+            if (!text || !section) return;
+
+            const confessionObject = {
+                id: Date.now(),
+                text: text,
+                grade: selectedGrade,
+                section: section,
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Save payload to storage
+            saveToDatabase(confessionObject);
+            
+            alert("Your secret has been safely submitted anonymously.");
+            
+            // Reset input UI fields safely
+            input.value = '';
+            sectionInput.value = '';
+            charCount.textContent = "0 / 500 characters";
+            resetGradeButtons();
+        });
+
+        // Secret Easter Egg Trigger (Click 5 times on Header title)
+        let clickCount = 0;
+        let clickTimer;
+
+        adminTrigger.addEventListener('click', () => {
+            clickCount++;
+            clearTimeout(clickTimer);
+            clickTimer = setTimeout(() => { clickCount = 0; }, 1500);
+
+            if (clickCount === 5) {
+                clickCount = 0; 
+                triggerAdminLogin();
+            }
+        });
+
+        // Password Check Window
+        function triggerAdminLogin() {
+            const passwordAttempt = prompt("Enter Admin Security Password:");
+            
+            if (passwordAttempt === "123@ADMIN") {
+                adminPanel.classList.remove('hidden');
+                userView.classList.add('hidden');
+                renderAdminFeed();
+            } else if (passwordAttempt !== null) {
+                alert("Incorrect administrative password. Access denied.");
+            }
+        }
+
+        // Render Admin List Content containing the new Meta variables
+        function renderAdminFeed() {
+            adminFeed.innerHTML = '';
+            const items = getDatabaseConfessions();
+
+            if (items.length === 0) {
+                adminFeed.innerHTML = `<p class="text-slate-500 text-sm text-center py-6">No confessions recorded yet.</p>`;
+                return;
+            }
+
+            items.forEach(item => {
+                const row = document.createElement('div');
+                row.className = "bg-slate-900 border border-slate-700/60 rounded-xl p-4 flex justify-between items-start space-x-4";
+                row.innerHTML = `
+                    <div class="flex-1 space-y-2">
+                        <!-- Added tags displaying Grade and Section inside Admin panel view -->
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-[11px] bg-indigo-950 text-indigo-300 font-bold px-2 py-0.5 rounded border border-indigo-800">${escapeHTML(item.grade)}</span>
+                            <span class="text-[11px] bg-slate-800 text-slate-300 font-bold px-2 py-0.5 rounded border border-slate-700">Sec: ${escapeHTML(item.section)}</span>
+                        </div>
+                        <p class="text-sm text-slate-300 whitespace-pre-line leading-relaxed pt-1">${escapeHTML(item.text)}</p>
+                        <span class="text-[10px] text-slate-500 block">Submitted: ${item.timestamp}</span>
+                    </div>
+                    <button onclick="deleteFromDatabase(${item.id})" class="text-xs bg-rose-900/40 border border-rose-800 text-rose-300 hover:bg-rose-600 hover:text-white px-2.5 py-1 rounded-lg transition-all flex-shrink-0">
+                        Delete
+                    </button>
+                `;
+                adminFeed.appendChild(row);
+            });
+        }
+
+        // Close Admin View
+        closeAdminBtn.addEventListener('click', () => {
+            adminPanel.classList.add('hidden');
+            userView.classList.remove('hidden');
+        });
+
+        // XSS Protection Utility
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+            }[tag] || tag));
+        }
+    </script>
+</body>
+</html>
