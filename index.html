@@ -1,276 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gurukul Confession</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nischal Adhikari — Graphic Designer & Visual Creative</title>
+<meta name="description" content="Nischal Adhikari — 16-year-old graphic designer from Nepal. Posters, branding, thumbnails and digital creatives with 1M+ views generated.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen font-sans flex flex-col justify-between">
+<body>
 
-    <div>
-        <!-- Header -->
-        <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-10">
-            <div class="max-w-3xl mx-auto px-4 py-4 flex justify-between items-center">
-                <h1 id="adminTrigger" class="text-2xl font-black tracking-tight text-indigo-400 cursor-pointer select-none active:scale-95 transition-transform" title="Click multiple times for admin access">
-                    Gurukul Confession.
-                </h1>
-                <span class="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded-full border border-slate-700">🔒 Fully Anonymous</span>
-            </div>
-        </header>
+<!-- Registration-mark custom cursor -->
+<div class="cursor" id="cursor">
+  <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18"/><line x1="20" y1="0" x2="20" y2="40"/><line x1="0" y1="20" x2="40" y2="20"/></svg>
+</div>
+<div class="cursor-dot" id="cursorDot"></div>
 
-        <main class="max-w-3xl mx-auto px-4 py-12 space-y-8">
-            
-            <!-- Main Confession Form View -->
-            <section id="userView" class="bg-slate-800/50 border border-slate-700/60 rounded-2xl p-6 shadow-xl">
-                <h2 class="text-lg font-bold mb-2">Spill your secret...</h2>
-                <p class="text-slate-400 text-sm mb-4">No names, no tracking. Just get it off your chest.</p>
-                
-                <form id="confessionForm" class="space-y-5">
-                    <!-- Confession Textarea -->
-                    <textarea 
-                        id="confessionInput"
-                        rows="5" 
-                        maxlength="500"
-                        required
-                        placeholder="Type your anonymous confession here..."
-                        class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none transition-all"
-                    ></textarea>
-                    
-                    <!-- REQUIRED CHOICE MENU: Grade 11 and Grade 12 -->
-                    <div class="space-y-2">
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Select Grade <span class="text-rose-400">*</span></label>
-                        <div class="grid grid-cols-2 gap-3">
-                            <button type="button" id="btnGrade11" onclick="selectGrade('Grade 11')" class="py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:border-indigo-500 transition-all font-medium text-sm text-center">
-                                Grade 11
-                            </button>
-                            <button type="button" id="btnGrade12" onclick="selectGrade('Grade 12')" class="py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:border-indigo-500 transition-all font-medium text-sm text-center">
-                                Grade 12
-                            </button>
-                        </div>
-                    </div>
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-mark">
+      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18"/><line x1="20" y1="0" x2="20" y2="40"/><line x1="0" y1="20" x2="40" y2="20"/></svg>
+    </div>
+    <div class="preloader-name">NISCHAL ADHIKARI</div>
+    <div class="preloader-bar"><span id="preloaderFill"></span></div>
+    <div class="preloader-pct" id="preloaderPct">0%</div>
+  </div>
+</div>
 
-                    <!-- SECTION TYPING: Input directly below choices -->
-                    <div class="space-y-2">
-                        <label for="sectionInput" class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Section <span class="text-rose-400">*</span></label>
-                        <input 
-                            type="text" 
-                            id="sectionInput" 
-                            required
-                            placeholder="e.g., A, Einstein, Management-B" 
-                            class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3.5 text-slate-200 placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-sm"
-                        />
-                    </div>
-                    
-                    <!-- Bottom row: Count & Submit Button -->
-                    <div class="flex justify-between items-center text-xs text-slate-500 pt-2 border-t border-slate-800">
-                        <span id="charCount">0 / 500 characters</span>
-                        <button 
-                            type="submit" 
-                            class="bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-6 py-2.5 rounded-xl transition-colors shadow-lg shadow-indigo-600/20"
-                        >
-                            Whisper into the void →
-                        </button>
-                    </div>
-                </form>
-            </section>
+<!-- Scroll progress -->
+<div class="scroll-progress"><span id="scrollProgressFill"></span></div>
 
-            <!-- Hidden Admin Panel View -->
-            <section id="adminPanel" class="hidden bg-slate-800 border border-indigo-500/40 rounded-2xl p-6 shadow-2xl space-y-4">
-                <div class="flex justify-between items-center border-b border-slate-700 pb-4">
-                    <div>
-                        <h2 class="text-xl font-bold text-indigo-400">🛡️ Admin Dashboard</h2>
-                        <p class="text-xs text-slate-400">Viewing all anonymous submissions</p>
-                    </div>
-                    <button id="closeAdminBtn" class="bg-slate-700 hover:bg-slate-600 text-xs px-3 py-1.5 rounded-lg transition-colors">
-                        Exit Admin View
-                    </button>
-                </div>
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <span class="nav-mark">✦</span> N. ADHIKARI
+      <span class="nav-reg">FIG.01 / PORTFOLIO</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about" data-hover>About</a>
+      <a href="#experience" data-hover>Experience</a>
+      <a href="#work" data-hover>Work</a>
+      <a href="#services" data-hover>Services</a>
+      <a href="#testimonials" data-hover>Testimonials</a>
+      <a href="#contact" class="nav-cta" data-hover>Let's Talk</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
 
-                <!-- Admin Feed List -->
-                <div id="adminFeed" class="space-y-3 max-h-[450px] overflow-y-auto pr-2">
-                    <!-- Confessions will be dynamically injected here -->
-                </div>
-            </section>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" data-hover>About</a>
+  <a href="#experience" data-hover>Experience</a>
+  <a href="#work" data-hover>Work</a>
+  <a href="#achievements" data-hover>Achievements</a>
+  <a href="#services" data-hover>Services</a>
+  <a href="#skills" data-hover>Skills</a>
+  <a href="#testimonials" data-hover>Testimonials</a>
+  <a href="#contact" data-hover>Contact</a>
+</div>
 
-        </main>
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="particles"></canvas>
+    <div class="hero-blob blob-blue"></div>
+    <div class="hero-blob blob-purple"></div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal-up">
+        <span class="dot"></span> Available for freelance work — Nepal / Remote
+      </div>
+      <h1 class="hero-title">
+        <span class="line reveal-up" style="--d:0.05s">Nischal</span>
+        <span class="line reveal-up" style="--d:0.15s"><em>Adhikari</em></span>
+      </h1>
+      <p class="hero-role reveal-up" style="--d:0.25s">Creative Graphic Designer <span class="sep">•</span> Visual Storyteller <span class="sep">•</span> Visual Brand Designer</p>
+      <p class="hero-intro reveal-up" style="--d:0.35s">I'm a 16-year-old graphic designer creating impactful posters, branding, thumbnails, social media creatives, and digital experiences that capture attention. My designs have generated over <strong>1 million views</strong> across YouTube and multiple social media platforms.</p>
+
+      <div class="hero-actions reveal-up" style="--d:0.45s">
+        <a href="#work" class="btn btn-primary" data-magnetic data-hover>View My Work</a>
+        <a href="#contact" class="btn btn-ghost" data-magnetic data-hover>Contact Me</a>
+        <a href="#" class="btn btn-text" data-magnetic data-hover>Download Resume <span class="arrow">↓</span></a>
+      </div>
+
+      <div class="hero-social reveal-up" style="--d:0.55s">
+        <a href="#" data-hover aria-label="Instagram">IG</a>
+        <a href="#" data-hover aria-label="Behance">BE</a>
+        <a href="#" data-hover aria-label="LinkedIn">IN</a>
+        <a href="#" data-hover aria-label="Facebook">FB</a>
+      </div>
     </div>
 
-    <!-- Minimalist Footer -->
-    <footer class="text-center py-6 text-xs text-slate-600 border-t border-slate-800/50">
-        Gurukul Confession Box.
-    </footer>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"><i></i></div>
+    </div>
 
-    <!-- JavaScript Logic -->
-    <script>
-        // DOM Elements
-        const form = document.getElementById('confessionForm');
-        const input = document.getElementById('confessionInput');
-        const sectionInput = document.getElementById('sectionInput');
-        const charCount = document.getElementById('charCount');
-        const adminTrigger = document.getElementById('adminTrigger');
-        const adminPanel = document.getElementById('adminPanel');
-        const userView = document.getElementById('userView');
-        const closeAdminBtn = document.getElementById('closeAdminBtn');
-        const adminFeed = document.getElementById('adminFeed');
+    <div class="hero-crop tl"></div><div class="hero-crop tr"></div>
+    <div class="hero-crop bl"></div><div class="hero-crop br"></div>
+  </section>
 
-        // Grade Selection State Variable
-        let selectedGrade = "";
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Rich Samir</span><span>·</span><span>KhelkoKura</span><span>·</span><span>Nawayug English School</span><span>·</span><span>Yugal Meet</span><span>·</span><span>Guff Sansar</span><span>·</span><span>Freelance Clients</span><span>·</span>
+      <span>Rich Samir</span><span>·</span><span>KhelkoKura</span><span>·</span><span>Nawayug English School</span><span>·</span><span>Yugal Meet</span><span>·</span><span>Guff Sansar</span><span>·</span><span>Freelance Clients</span><span>·</span>
+    </div>
+  </div>
 
-        // Function to toggle selection highlight between Grade buttons
-        function selectGrade(grade) {
-            selectedGrade = grade;
-            const btn11 = document.getElementById('btnGrade11');
-            const btn12 = document.getElementById('btnGrade12');
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-head">
+      <span class="eyebrow reveal-up">FIG.02 — ABOUT</span>
+      <h2 class="reveal-up">The person behind the pixels</h2>
+    </div>
 
-            if (grade === 'Grade 11') {
-                btn11.className = "py-3 px-4 rounded-xl border-2 border-indigo-500 bg-indigo-600/20 text-white transition-all font-semibold text-sm text-center shadow-md shadow-indigo-500/10";
-                btn12.className = "py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 hover:border-slate-600 transition-all font-medium text-sm text-center";
-            } else {
-                btn12.className = "py-3 px-4 rounded-xl border-2 border-indigo-500 bg-indigo-600/20 text-white transition-all font-semibold text-sm text-center shadow-md shadow-indigo-500/10";
-                btn11.className = "py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-400 hover:border-slate-600 transition-all font-medium text-sm text-center";
-            }
-        }
+    <div class="about-grid">
+      <div class="about-visual reveal-up">
+        <div class="about-frame">
+          <div class="about-photo">
+            <div class="halftone"></div>
+            <span class="about-initials">N.A</span>
+          </div>
+          <div class="about-tag">PANTONE® 286 C <i></i></div>
+        </div>
+      </div>
 
-        // Reset Grade Button Styles on form submission
-        function resetGradeButtons() {
-            selectedGrade = "";
-            document.getElementById('btnGrade11').className = "py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:border-indigo-500 transition-all font-medium text-sm text-center";
-            document.getElementById('btnGrade12').className = "py-3 px-4 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:border-indigo-500 transition-all font-medium text-sm text-center";
-        }
+      <div class="about-copy">
+        <p class="reveal-up">Hi, I'm <strong>Nischal Adhikari</strong>, a passionate 16-year-old graphic designer from Nepal who specializes in visual communication, branding, poster design, and digital marketing creatives.</p>
+        <p class="reveal-up">I've worked with creators, schools, organizations, and media platforms, helping brands communicate through impactful visuals. My work has reached over one million viewers across YouTube and other digital platforms.</p>
+        <p class="reveal-up quote-line">"Great design doesn't just look good — it tells a story, builds trust, and creates results."</p>
+      </div>
+    </div>
 
-        // Character counter logic
-        input.addEventListener('input', () => {
-            charCount.textContent = `${input.value.length} / 500 characters`;
-        });
+    <div class="stats-grid">
+      <div class="stat reveal-up"><span class="stat-num" data-count="16">0</span><span class="stat-label">Years Old</span></div>
+      <div class="stat reveal-up"><span class="stat-num" data-count="1" data-suffix="M+">0</span><span class="stat-label">Views Generated</span></div>
+      <div class="stat reveal-up"><span class="stat-num" data-count="100" data-suffix="+">0</span><span class="stat-label">Projects Completed</span></div>
+      <div class="stat reveal-up"><span class="stat-num" data-count="20" data-suffix="+">0</span><span class="stat-label">Clients</span></div>
+      <div class="stat reveal-up"><span class="stat-num" data-count="5" data-suffix="+">0</span><span class="stat-label">Years Learning Design</span></div>
+    </div>
+  </section>
 
-        /* ==========================================
-           PRODUCTION DATABASE CONNECTOR (PLACEHOLDER)
-        ============================================= */
-        function getDatabaseConfessions() {
-            return JSON.parse(localStorage.getItem('productionConfessions')) || [];
-        }
+  <!-- EXPERIENCE -->
+  <section class="experience" id="experience">
+    <div class="section-head">
+      <span class="eyebrow reveal-up">FIG.03 — EXPERIENCE</span>
+      <h2 class="reveal-up">Where the work has lived</h2>
+    </div>
 
-        function saveToDatabase(newConfession) {
-            const currentData = getDatabaseConfessions();
-            currentData.unshift(newConfession);
-            localStorage.setItem('productionConfessions', JSON.stringify(currentData));
-        }
+    <div class="timeline">
+      <div class="timeline-line"><i id="timelineFill"></i></div>
 
-        function deleteFromDatabase(id) {
-            let currentData = getDatabaseConfessions();
-            currentData = currentData.filter(item => item.id !== id);
-            localStorage.setItem('productionConfessions', JSON.stringify(currentData));
-            renderAdminFeed(); 
-        }
-        /* ========================================== */
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card" data-tilt>
+          <span class="tl-role">Graphic Designer</span>
+          <h3>Rich Samir</h3>
+          <p>Designed branding, YouTube thumbnails, promotional posters, and social media graphics.</p>
+        </div>
+      </div>
 
-        // Handle Form Submission
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Check if grade selection was made
-            if (!selectedGrade) {
-                alert("Please select either Grade 11 or Grade 12 before whispering.");
-                return;
-            }
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card" data-tilt>
+          <span class="tl-role">Graphic Designer</span>
+          <h3>KhelkoKura</h3>
+          <p>Created sports posters, tournament graphics, player announcements, and digital campaigns.</p>
+        </div>
+      </div>
 
-            const text = input.value.trim();
-            const section = sectionInput.value.trim();
-            if (!text || !section) return;
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card" data-tilt>
+          <span class="tl-role">Graphic Designer</span>
+          <h3>Nawayug English School</h3>
+          <p>Designed admission campaigns, educational posters, event branding, banners, certificates, and social media posts.</p>
+        </div>
+      </div>
 
-            const confessionObject = {
-                id: Date.now(),
-                text: text,
-                grade: selectedGrade,
-                section: section,
-                timestamp: new Date().toLocaleString()
-            };
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card" data-tilt>
+          <span class="tl-role">Creative Designer</span>
+          <h3>Yugal Meet</h3>
+          <p>Created event promotions, branding assets, posters, and marketing materials.</p>
+        </div>
+      </div>
 
-            // Save payload to storage
-            saveToDatabase(confessionObject);
-            
-            alert("Your secret has been safely submitted anonymously.");
-            
-            // Reset input UI fields safely
-            input.value = '';
-            sectionInput.value = '';
-            charCount.textContent = "0 / 500 characters";
-            resetGradeButtons();
-        });
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card" data-tilt>
+          <span class="tl-role">Graphic Designer</span>
+          <h3>Guff Sansar</h3>
+          <p>Designed engaging social media content and promotional visuals.</p>
+        </div>
+      </div>
 
-        // Secret Easter Egg Trigger (Click 5 times on Header title)
-        let clickCount = 0;
-        let clickTimer;
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card" data-tilt>
+          <span class="tl-role">Freelance Designer</span>
+          <h3>Independent Practice</h3>
+          <p>Worked with many creators, organizations, schools, businesses, and startups across Nepal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        adminTrigger.addEventListener('click', () => {
-            clickCount++;
-            clearTimeout(clickTimer);
-            clickTimer = setTimeout(() => { clickCount = 0; }, 1500);
+  <!-- WORK -->
+  <section class="work" id="work">
+    <div class="section-head">
+      <span class="eyebrow reveal-up">FIG.04 — SELECTED WORK</span>
+      <h2 class="reveal-up">Featured Projects</h2>
+      <p class="section-sub reveal-up">A collection of posters, brand systems, thumbnails, and campaigns built for real clients and real results.</p>
+    </div>
 
-            if (clickCount === 5) {
-                clickCount = 0; 
-                triggerAdminLogin();
-            }
-        });
+    <div class="filters reveal-up" id="filters">
+      <button class="filter-btn active" data-filter="all" data-hover>All</button>
+      <button class="filter-btn" data-filter="poster" data-hover>Poster Design</button>
+      <button class="filter-btn" data-filter="branding" data-hover>School Branding</button>
+      <button class="filter-btn" data-filter="thumbnail" data-hover>YouTube Thumbnails</button>
+      <button class="filter-btn" data-filter="social" data-hover>Social Media</button>
+      <button class="filter-btn" data-filter="event" data-hover>Event Posters</button>
+      <button class="filter-btn" data-filter="campaign" data-hover>Creative Campaigns</button>
+    </div>
 
-        // Password Check Window
-        function triggerAdminLogin() {
-            const passwordAttempt = prompt("Enter Admin Security Password:");
-            
-            if (passwordAttempt === "123@ADMIN") {
-                adminPanel.classList.remove('hidden');
-                userView.classList.add('hidden');
-                renderAdminFeed();
-            } else if (passwordAttempt !== null) {
-                alert("Incorrect administrative password. Access denied.");
-            }
-        }
+    <div class="work-grid" id="workGrid"><!-- injected by JS --></div>
+  </section>
 
-        // Render Admin List Content containing the new Meta variables
-        function renderAdminFeed() {
-            adminFeed.innerHTML = '';
-            const items = getDatabaseConfessions();
+  <!-- CASE STUDY MODAL -->
+  <div class="case-study" id="caseStudy">
+    <div class="case-inner">
+      <button class="case-close" id="caseClose" data-hover>✕ Close</button>
+      <div class="case-media" id="caseMedia"></div>
+      <div class="case-info">
+        <span class="case-cat" id="caseCat"></span>
+        <h3 id="caseTitle"></h3>
+        <p id="caseDesc"></p>
+        <div class="case-meta">
+          <div><span>Client</span><strong id="caseClient"></strong></div>
+          <div><span>Tools</span><strong id="caseTools"></strong></div>
+          <div><span>Category</span><strong id="caseCategory"></strong></div>
+        </div>
+        <div class="case-process" id="caseProcess"></div>
+      </div>
+    </div>
+  </div>
 
-            if (items.length === 0) {
-                adminFeed.innerHTML = `<p class="text-slate-500 text-sm text-center py-6">No confessions recorded yet.</p>`;
-                return;
-            }
+  <!-- ACHIEVEMENTS -->
+  <section class="achievements" id="achievements">
+    <div class="section-head">
+      <span class="eyebrow reveal-up">FIG.05 — ACHIEVEMENTS</span>
+      <h2 class="reveal-up">Milestones worth marking</h2>
+    </div>
+    <div class="ach-grid">
+      <div class="ach-card reveal-up" data-tilt><span class="ach-icon">🏆</span><p>Generated 1 million+ views across YouTube &amp; social platforms</p></div>
+      <div class="ach-card reveal-up" data-tilt><span class="ach-icon">🎨</span><p>Designed hundreds of posters across sports, education &amp; events</p></div>
+      <div class="ach-card reveal-up" data-tilt><span class="ach-icon">🚀</span><p>Worked with well-known creators and organizations</p></div>
+      <div class="ach-card reveal-up" data-tilt><span class="ach-icon">📈</span><p>Increased client engagement through creative visuals</p></div>
+      <div class="ach-card reveal-up" data-tilt><span class="ach-icon">💡</span><p>Built strong, memorable visual identities from scratch</p></div>
+    </div>
+  </section>
 
-            items.forEach(item => {
-                const row = document.createElement('div');
-                row.className = "bg-slate-900 border border-slate-700/60 rounded-xl p-4 flex justify-between items-start space-x-4";
-                row.innerHTML = `
-                    <div class="flex-1 space-y-2">
-                        <!-- Added tags displaying Grade and Section inside Admin panel view -->
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="text-[11px] bg-indigo-950 text-indigo-300 font-bold px-2 py-0.5 rounded border border-indigo-800">${escapeHTML(item.grade)}</span>
-                            <span class="text-[11px] bg-slate-800 text-slate-300 font-bold px-2 py-0.5 rounded border border-slate-700">Sec: ${escapeHTML(item.section)}</span>
-                        </div>
-                        <p class="text-sm text-slate-300 whitespace-pre-line leading-relaxed pt-1">${escapeHTML(item.text)}</p>
-                        <span class="text-[10px] text-slate-500 block">Submitted: ${item.timestamp}</span>
-                    </div>
-                    <button onclick="deleteFromDatabase(${item.id})" class="text-xs bg-rose-900/40 border border-rose-800 text-rose-300 hover:bg-rose-600 hover:text-white px-2.5 py-1 rounded-lg transition-all flex-shrink-0">
-                        Delete
-                    </button>
-                `;
-                adminFeed.appendChild(row);
-            });
-        }
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-head">
+      <span class="eyebrow reveal-up">FIG.06 — SERVICES</span>
+      <h2 class="reveal-up">What I can build for you</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal-up" data-tilt><span class="s-num">01</span><h3>Poster Design</h3><p>Eye-catching posters built to stop the scroll and hold attention.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">02</span><h3>Social Media Design</h3><p>Cohesive content systems for feeds, stories, and campaigns.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">03</span><h3>Logo Design</h3><p>Marks that are simple, distinct, and built to last.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">04</span><h3>Branding</h3><p>Full visual identity systems — color, type, and voice.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">05</span><h3>YouTube Thumbnails</h3><p>High-CTR thumbnails engineered to earn the click.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">06</span><h3>School Branding</h3><p>Admission campaigns, certificates, and campus identity.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">07</span><h3>Banner Design</h3><p>Web and print banners tuned for every placement.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">08</span><h3>Advertisement Design</h3><p>Promotional creative built around a clear message.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">09</span><h3>Print Design</h3><p>Production-ready files, correctly set for the press.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">10</span><h3>UI Design</h3><p>Clean interface layouts for sites and products.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">11</span><h3>Photo Manipulation</h3><p>Composite imagery for concept-driven creative.</p></div>
+      <div class="service-card reveal-up" data-tilt><span class="s-num">12</span><h3>Creative Direction</h3><p>End-to-end guidance from concept to final delivery.</p></div>
+    </div>
+  </section>
 
-        // Close Admin View
-        closeAdminBtn.addEventListener('click', () => {
-            adminPanel.classList.add('hidden');
-            userView.classList.remove('hidden');
-        });
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="section-head">
+      <span class="eyebrow reveal-up">FIG.07 — SKILLS</span>
+      <h2 class="reveal-up">Tools of the trade</h2>
+    </div>
+    <div class="skills-grid" id="skillsGrid"><!-- injected by JS --></div>
+  </section>
 
-        // XSS Protection Utility
-        function escapeHTML(str) {
-            return str.replace(/[&<>'"]/g, tag => ({
-                '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
-            }[tag] || tag));
-        }
-    </script>
+  <!-- WHY CHOOSE ME -->
+  <section class="why" id="why">
+    <div class="section-head">
+      <span class="eyebrow reveal-up">FIG.08 — WHY WORK WITH ME</span>
+      <h2 class="reveal-up">Reasons clients come back</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal-up"><span>◆</span>Modern Designs</div>
+      <div class="why-item reveal-up"><span>◆</span>Fast Delivery</div>
+      <div class="why-item reveal-up"><span>◆</span>Creative Ideas</div>
+      <div class="why-item reveal-up"><span>◆</span>Attention to Detail</div>
+      <div class="why-item reveal-up"><span>◆</span>High Engagement Designs</div>
+      <div class="why-item reveal-up"><span>◆</span>Affordable Pricing</div>
+      <div class="why-item reveal-up"><span>◆</span>Friendly Communication</div>
+      <div class="why-item reveal-up"><span>◆</span>Client Satisfaction</div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-head">
+      <span class="eyebrow reveal-up">FIG.09 — TESTIMONIALS</span>
+      <h2 class="reveal-up">What clients say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal-up" data-tilt><p>"Nischal consistently creates designs that immediately grab attention."</p><span>— Client, Sports Media</span></div>
+      <div class="testi-card reveal-up" data-tilt><p>"Professional work far beyond his age."</p><span>— Client, Education Sector</span></div>
+      <div class="testi-card reveal-up" data-tilt><p>"Highly recommended for posters and branding."</p><span>— Client, Events &amp; Promotions</span></div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="section-head">
+      <span class="eyebrow reveal-up">FIG.10 — PROCESS</span>
+      <h2 class="reveal-up">How a project comes together</h2>
+    </div>
+    <div class="process-track">
+      <div class="process-line"></div>
+      <div class="process-step reveal-up"><span class="p-num">01</span><h4>Discussion</h4><p>Understand goals, audience, and constraints.</p></div>
+      <div class="process-step reveal-up"><span class="p-num">02</span><h4>Research</h4><p>Study references, competitors, and context.</p></div>
+      <div class="process-step reveal-up"><span class="p-num">03</span><h4>Idea &amp; Concept</h4><p>Sketch directions and pick the strongest one.</p></div>
+      <div class="process-step reveal-up"><span class="p-num">04</span><h4>Design</h4><p>Build the full visual in high fidelity.</p></div>
+      <div class="process-step reveal-up"><span class="p-num">05</span><h4>Revision</h4><p>Refine based on feedback.</p></div>
+      <div class="process-step reveal-up"><span class="p-num">06</span><h4>Final Delivery</h4><p>Hand off production-ready files.</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-blob"></div>
+    <span class="eyebrow reveal-up">FIG.11 — CONTACT</span>
+    <h2 class="reveal-up">Let's build something<br><em>amazing</em> together.</h2>
+    <a href="mailto:nischaladk066@gmail.com" class="contact-email reveal-up" data-hover>nischaladk066@gmail.com</a>
+    <div class="contact-links reveal-up">
+      <a href="#" data-hover data-magnetic>Email</a>
+      <a href="#" data-hover data-magnetic>Instagram</a>
+      <a href="#" data-hover data-magnetic>Facebook</a>
+      <a href="#" data-hover data-magnetic>WhatsApp</a>
+      <a href="#" data-hover data-magnetic>Behance</a>
+      <a href="#" data-hover data-magnetic>LinkedIn</a>
+      <a href="#" data-hover data-magnetic>GitHub</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>Designed &amp; Developed by <strong>Nischal Adhikari</strong></span>
+    <span>© 2026 All Rights Reserved</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
