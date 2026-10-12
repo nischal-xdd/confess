@@ -1,438 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nischal Adhikari — Graphic Designer & Visual Creative</title>
-<meta name="description" content="Nischal Adhikari — 16-year-old graphic designer from Nepal. Posters, branding, thumbnails and digital creatives with 1M+ views generated.">
-<meta name="author" content="Nischal Adhikari">
-<meta name="keywords" content="graphic designer Nepal, poster design, branding, YouTube thumbnails, social media design, logo design, freelance graphic designer, visual identity, school branding, banner design, advertisement design, Nischal Adhikari">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#07070c">
-<link rel="canonical" href="https://www.nischaladk.xyz/">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.nischaladk.xyz/">
-<meta property="og:title" content="Nischal Adhikari — Graphic Designer & Visual Creative">
-<meta property="og:description" content="Nischal Adhikari — 16-year-old graphic designer from Nepal. Posters, branding, thumbnails and digital creatives with 1M+ views generated.">
-<meta property="og:site_name" content="Nischal Adhikari Portfolio">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://www.nischaladk.xyz/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Nischal Adhikari — Graphic Designer & Visual Creative">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nischal Adhikari — Graphic Designer & Visual Creative">
-<meta name="twitter:description" content="Nischal Adhikari — 16-year-old graphic designer from Nepal. Posters, branding, thumbnails and digital creatives with 1M+ views generated.">
-<meta name="twitter:image" content="https://www.nischaladk.xyz/og-image.png">
-<meta name="twitter:image:alt" content="Nischal Adhikari — Graphic Designer & Visual Creative">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Nischal Adhikari",
-  "url": "https://www.nischaladk.xyz/",
-  "jobTitle": "Graphic Designer",
-  "description": "16-year-old graphic designer from Nepal specializing in posters, branding, thumbnails, and digital creatives with 1M+ views generated.",
-  "address": {
-    "@type": "Country",
-    "name": "Nepal"
-  },
-  "knowsAbout": ["Graphic Design", "Poster Design", "Branding", "Logo Design", "YouTube Thumbnails", "Social Media Design", "UI Design", "Photo Manipulation", "Creative Direction", "Print Design", "Advertisement Design", "Banner Design", "School Branding"],
-  "hasOccupation": {
-    "@type": "Occupation",
-    "name": "Graphic Designer",
-    "skills": ["Photoshop", "Illustrator", "Canva", "Lightroom", "Typography", "Branding", "Poster Design", "Creative Thinking"]
-  },
-  "sameAs": ["https://www.behance.net/nischalpng", "https://www.facebook.com/nischal.xyz", "https://www.instagram.com/nxclxr_/", "https://www.linkedin.com/in/nischal-adhikari77/"]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Nischal Adhikari Portfolio",
-  "url": "https://www.nischaladk.xyz/",
-  "description": "Portfolio of Nischal Adhikari — Graphic Designer & Visual Creative from Nepal"
-}
-</script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a1220" />
+  <meta name="description" content="Nischal Adhikari — Dreaming for a Better Nepal. A Voice for the Voiceless." />
+  <title>Nischal Adhikari — A Voice for the Voiceless</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08111e;
+      --panel: rgba(255,255,255,.055);
+      --line: rgba(255,255,255,.12);
+      --text: #f5f7fb;
+      --muted: #aab5c6;
+      --red: #e33d4f;
+      --red-light: #ff6672;
+      --blue: #91b9ff;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: "DM Sans", sans-serif; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -2;
+      background:
+        radial-gradient(ellipse at 75% 14%, rgba(57,102,169,.2), transparent 35%),
+        radial-gradient(ellipse at 12% 48%, rgba(227,61,79,.09), transparent 32%),
+        linear-gradient(145deg, #08111e, #0a1423 55%, #080e18);
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(var(--max), calc(100% - 44px)); margin: auto; }
+    .topbar {
+      position: fixed; z-index: 20; top: 0; left: 0; width: 100%;
+      background: rgba(8,17,30,.72); backdrop-filter: blur(18px);
+      border-bottom: 1px solid transparent; transition: .3s ease;
+    }
+    .topbar.scrolled { border-bottom-color: var(--line); background: rgba(8,17,30,.92); }
+    nav { height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: Manrope, sans-serif; font-weight: 800; letter-spacing: -.04em; }
+    .brand-mark { width: 38px; height: 38px; display: block; flex: 0 0 38px; overflow: hidden; border-radius: 50%; background: var(--red); box-shadow: 0 7px 24px rgba(227,61,79,.25); }\n    .brand-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; filter: grayscale(100%); }
+    .brand span:last-child { font-size: 15px; letter-spacing: .01em; }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: #c4ccda; font-size: 13px; }
+    .nav-links a { transition: color .25s ease; }
+    .nav-links a:hover { color: white; }
+    .nav-cta { border: 1px solid rgba(255,255,255,.2); padding: 11px 16px; border-radius: 999px; color: white !important; }
+    .menu-btn { display: none; border: 1px solid var(--line); background: transparent; color: white; padding: 10px 12px; border-radius: 10px; font-size: 20px; }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 145px 0 82px; position: relative; isolation: isolate; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 56px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: .19em; font-size: 11px; font-weight: 700; color: #f28c96; }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--red); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-family: Manrope, sans-serif; font-size: clamp(46px, 6.5vw, 82px); line-height: .99; letter-spacing: -.065em; margin: 23px 0 22px; max-width: 700px; }
+    h1 .accent { color: var(--red-light); display: block; }
+    .hero-copy { max-width: 560px; color: var(--muted); font-size: clamp(15px, 1.45vw, 18px); line-height: 1.85; }
+    .hero-actions { display: flex; gap: 13px; align-items: center; flex-wrap: wrap; margin-top: 31px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 10px; border-radius: 999px; padding: 15px 21px; font-weight: 700; font-size: 13px; transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { background: var(--red); color: white; box-shadow: 0 10px 28px rgba(227,61,79,.22); }
+    .btn-primary:hover { background: #f04b5d; box-shadow: 0 15px 34px rgba(227,61,79,.3); }
+    .btn-ghost { border: 1px solid var(--line); color: #e8edf5; }
+    .btn-ghost:hover { background: rgba(255,255,255,.06); }
+    .hero-note { display: flex; align-items: center; gap: 13px; margin-top: 42px; color: #9da9bb; font-size: 12px; }
+    .note-line { width: 35px; height: 1px; background: #566277; }
+    .visual { position: relative; min-height: 540px; display: grid; place-items: center; }
+    .orbit { position: absolute; width: min(39vw, 450px); aspect-ratio: 1; border: 1px solid rgba(174,195,227,.15); border-radius: 50%; animation: rotate 34s linear infinite; }
+    .orbit::before, .orbit::after { content: ""; position: absolute; border-radius: 50%; }
+    .orbit::before { inset: 26px; border: 1px dashed rgba(174,195,227,.18); }
+    .orbit::after { width: 9px; height: 9px; background: var(--red-light); top: 11%; left: 17%; box-shadow: 0 0 22px rgba(255,102,114,.8); }
+    .portrait-card {
+      position: relative; width: min(100%, 410px); aspect-ratio: 4 / 5; border-radius: 28px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.18); background:
+      linear-gradient(180deg, rgba(7,15,26,.03) 20%, rgba(7,15,26,.9) 100%),
+      radial-gradient(ellipse at 52% 24%, rgba(115,154,205,.55), transparent 34%),
+      linear-gradient(145deg, #233b57, #142235 55%, #101824);
+      box-shadow: 0 35px 90px rgba(0,0,0,.4); transform: rotate(2deg); animation: float 6s ease-in-out infinite;
+    }
+    .portrait-card::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 15%, rgba(255,255,255,.08) 36%, transparent 54%);
+      transform: translateX(-100%); animation: shine 7s ease-in-out infinite;
+    }
+    .mountains { position: absolute; bottom: 0; left: 0; width: 100%; height: 48%; opacity: .7; }
+    .mountains svg { width: 100%; height: 100%; }
+    .portrait-placeholder {
+      position: absolute; top: 13%; left: 50%; transform: translateX(-50%);
+      width: 42%; height: 44%; display: flex; flex-direction: column; align-items: center;
+    }
+    .head { width: 84px; height: 99px; background: linear-gradient(110deg,#c88d70,#efc2a1); border-radius: 46% 46% 42% 42%; position: relative; z-index: 2; box-shadow: inset -12px -5px 0 rgba(87,48,42,.12); }
+    .hair { position: absolute; top: -8px; width: 90px; height: 42px; border-radius: 55% 55% 25% 20%; background: #171a20; z-index: 3; }
+    .body-shape { width: 190px; height: 185px; margin-top: -1px; background: linear-gradient(120deg,#192536,#0b111b); border-radius: 45% 45% 10% 10%; position: relative; z-index: 1; border-top: 9px solid #e7eaf0; }
+    .body-shape::after { content: ""; position: absolute; top: -9px; left: 50%; transform: translateX(-50%); width: 42px; height: 65px; background: var(--red); clip-path: polygon(0 0,100% 0,72% 100%,50% 84%,28% 100%); }
+    .card-caption { position: absolute; z-index: 4; bottom: 25px; left: 25px; right: 25px; }
+    .caption-label { font-size: 10px; letter-spacing: .2em; color: #ff9ca5; font-weight: 700; }
+    .card-caption h2 { font: 800 27px Manrope,sans-serif; letter-spacing: -.04em; margin: 8px 0; }
+    .card-caption p { margin: 0; color: #bdc7d5; font-size: 12px; }
+    .floating-tag { position: absolute; z-index: 5; padding: 13px 16px; border: 1px solid rgba(255,255,255,.14); border-radius: 15px; background: rgba(12,22,37,.84); backdrop-filter: blur(14px); box-shadow: 0 18px 38px rgba(0,0,0,.25); animation: float 5s ease-in-out infinite; }
+    .tag-top { top: 13%; right: -4%; }
+    .tag-bottom { bottom: 12%; left: -8%; animation-delay: -2s; }
+    .tag-small { display: block; color: #9ba9bc; font-size: 10px; margin-bottom: 5px; }
+    .tag-large { font: 700 13px Manrope,sans-serif; }
+    .tag-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #5ed9a6; margin-right: 6px; }
+    section { padding: 110px 0; }
+    .section-head { max-width: 690px; margin-bottom: 48px; }
+    .section-head h2 { font: 800 clamp(32px,4.2vw,52px)/1.08 Manrope,sans-serif; letter-spacing: -.055em; margin: 18px 0; }
+    .section-head p { color: var(--muted); line-height: 1.8; max-width: 580px; }
+    .values { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .value-card { padding: 29px; min-height: 245px; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.018)); transition: transform .35s ease,border-color .35s ease,background .35s ease; }
+    .value-card:hover { transform: translateY(-7px); border-color: rgba(255,102,114,.45); background: linear-gradient(145deg,rgba(227,61,79,.1),rgba(255,255,255,.025)); }
+    .value-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 14px; color: #ff9ca5; background: rgba(227,61,79,.13); margin-bottom: 25px; }
+    .value-icon svg { width: 23px; height: 23px; }
+    .value-card h3 { font: 700 18px Manrope,sans-serif; margin-bottom: 11px; }
+    .value-card p { color: var(--muted); font-size: 14px; line-height: 1.75; margin: 0; }
+    .vision-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: start; }
+    .vision-statement { position: sticky; top: 125px; padding: 35px; border-radius: 22px; background: linear-gradient(150deg,rgba(227,61,79,.15),rgba(255,255,255,.025)); border: 1px solid rgba(227,61,79,.23); }
+    .quote-mark { color: var(--red-light); font: 800 70px/1 Manrope,sans-serif; height: 53px; }
+    .vision-statement h3 { font: 800 29px/1.25 Manrope,sans-serif; letter-spacing: -.04em; }
+    .vision-statement p { color: var(--muted); font-size: 14px; line-height: 1.8; margin-bottom: 0; }
+    .vision-list { display: grid; gap: 0; }
+    .vision-item { padding: 24px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 48px 1fr; gap: 18px; }
+    .vision-number { color: #f28c96; font: 700 12px Manrope,sans-serif; padding-top: 4px; }
+    .vision-item h3 { font: 700 18px Manrope,sans-serif; margin-bottom: 8px; }
+    .vision-item p { color: var(--muted); font-size: 14px; line-height: 1.8; margin: 0; }
+    .action-panel { position: relative; overflow: hidden; border-radius: 28px; border: 1px solid var(--line); padding: clamp(32px,6vw,72px); background: linear-gradient(115deg,rgba(26,43,66,.95),rgba(13,24,40,.96)); }
+    .action-panel::after { content: ""; position: absolute; width: 340px; height: 340px; border: 1px solid rgba(255,255,255,.08); border-radius: 50%; right: -80px; top: -150px; box-shadow: 0 0 0 35px rgba(255,255,255,.018),0 0 0 70px rgba(255,255,255,.014); }
+    .action-panel h2 { font: 800 clamp(32px,4.8vw,56px)/1.05 Manrope,sans-serif; letter-spacing: -.055em; max-width: 680px; position: relative; z-index: 1; }
+    .action-panel p { max-width: 600px; color: var(--muted); line-height: 1.8; position: relative; z-index: 1; }
+    .action-panel .btn { position: relative; z-index: 1; margin-top: 12px; }
+    .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; }
+    .contact-copy h2 { font: 800 clamp(34px,4vw,50px)/1.1 Manrope,sans-serif; letter-spacing: -.05em; }
+    .contact-copy p { color: var(--muted); line-height: 1.8; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+    .contact-links a { border: 1px solid var(--line); border-radius: 999px; padding: 11px 15px; font-size: 12px; color: #dbe2ec; transition: .25s; }
+    .contact-links a:hover { border-color: var(--red); color: white; }
+    form { display: grid; gap: 14px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    input, textarea { width: 100%; border: 1px solid var(--line); background: rgba(255,255,255,.035); color: white; border-radius: 12px; padding: 15px 16px; font: 14px "DM Sans",sans-serif; outline: none; transition: border-color .25s,background .25s; }
+    input:focus, textarea:focus { border-color: rgba(255,102,114,.7); background: rgba(255,255,255,.055); }
+    input::placeholder, textarea::placeholder { color: #7f8ba0; }
+    textarea { min-height: 145px; resize: vertical; }
+    .form-note { font-size: 11px; color: #8793a7; line-height: 1.6; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: #8793a7; font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    .footer-slogan { color: #dce3ee; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .12s; } .delay-2 { transition-delay: .22s; } .delay-3 { transition-delay: .32s; }
+    .progress { position: fixed; z-index: 30; top: 0; left: 0; width: 0%; height: 2px; background: var(--red); }
+    .back-top { position: fixed; right: 22px; bottom: 22px; z-index: 15; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 50%; background: rgba(12,22,37,.8); color: white; cursor: pointer; opacity: 0; pointer-events: none; transform: translateY(8px); transition: .25s; }
+    .back-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+    @keyframes rotate { to { transform: rotate(360deg); } }
+    @keyframes shine { 0%,55% { transform: translateX(-100%); } 78%,100% { transform: translateX(100%); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr .8fr; gap: 22px; }
+      .visual { min-height: 460px; }
+      .portrait-card { width: 330px; }
+      .orbit { width: 350px; }
+      .tag-top { right: -2%; } .tag-bottom { left: -2%; }
+      .nav-links { gap: 17px; }
+      .vision-wrap { gap: 35px; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 34px, var(--max)); }
+      nav { height: 68px; }
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 20px 24px 24px; background: rgba(8,17,30,.98); border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 20px; }
+      .nav-links.open { display: flex; }
+      .nav-cta { text-align: center; }
+      .hero { padding: 120px 0 60px; min-height: auto; }
+      .hero-grid { grid-template-columns: 1fr; gap: 20px; }
+      h1 { font-size: clamp(46px, 13vw, 68px); }
+      .hero-copy { font-size: 15px; }
+      .visual { min-height: 480px; margin-top: 8px; }
+      .portrait-card { width: min(78%, 350px); }
+      .orbit { width: min(88vw, 390px); }
+      .tag-top { right: 0; top: 9%; } .tag-bottom { left: 0; bottom: 8%; }
+      section { padding: 76px 0; }
+      .values { grid-template-columns: 1fr; }
+      .value-card { min-height: 0; }
+      .vision-wrap, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .vision-statement { position: static; }
+      .field-row { grid-template-columns: 1fr; }
+      .action-panel { border-radius: 22px; }
+    }
+  </style>
 </head>
 <body>
-
-<!-- Registration-mark custom cursor -->
-<div class="cursor" id="cursor">
-  <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18"/><line x1="20" y1="0" x2="20" y2="40"/><line x1="0" y1="20" x2="40" y2="20"/></svg>
-</div>
-<div class="cursor-dot" id="cursorDot"></div>
-
-<!-- Preloader -->
-<div class="preloader" id="preloader">
-  <div class="preloader-inner">
-    <div class="preloader-mark">
-      <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18"/><line x1="20" y1="0" x2="20" y2="40"/><line x1="0" y1="20" x2="40" y2="20"/></svg>
-    </div>
-    <div class="preloader-name">NISCHAL ADHIKARI</div>
-    <div class="preloader-bar"><span id="preloaderFill"></span></div>
-    <div class="preloader-pct" id="preloaderPct">0%</div>
-    </div>
-  </div>
-
-<!-- Scroll progress -->
-<div class="scroll-progress"><span id="scrollProgressFill"></span></div>
-
-<!-- Nav -->
-<nav class="nav" id="nav" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="#top" class="nav-logo">
-      <span class="nav-mark">✦</span> N. ADHIKARI
-      <span class="nav-reg">FIG.01 / PORTFOLIO</span>
-    </a>
-    <div class="nav-links">
-      <a href="#about" data-hover>About</a>
-      <a href="#experience" data-hover>Experience</a>
-      <a href="#work" data-hover>Work</a>
-      <a href="#services" data-hover>Services</a>
-      <a href="#testimonials" data-hover>Testimonials</a>
-      <a href="#contact" class="nav-cta" data-hover>Let's Talk</a>
-    </div>
-    <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span></button>
-  </div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
-  <a href="#about" data-hover>About</a>
-  <a href="#experience" data-hover>Experience</a>
-  <a href="#work" data-hover>Work</a>
-  <a href="#achievements" data-hover>Achievements</a>
-  <a href="#services" data-hover>Services</a>
-  <a href="#skills" data-hover>Skills</a>
-  <a href="#testimonials" data-hover>Testimonials</a>
-  <a href="#contact" data-hover>Contact</a>
-</div>
-
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <canvas id="particles"></canvas>
-    <div class="hero-blob blob-blue"></div>
-    <div class="hero-blob blob-purple"></div>
-    <div class="hero-grid"></div>
-
-    <div class="hero-content">
-      <div class="hero-eyebrow reveal-up">
-        <span class="dot"></span> Available for freelance work — Nepal / Remote
-      </div>
-      <h1 class="hero-title">
-        <span class="line reveal-up" style="--d:0.05s">Nischal</span>
-        <span class="line reveal-up" style="--d:0.15s"><em>Adhikari</em></span>
-      </h1>
-      <p class="hero-role reveal-up" style="--d:0.25s">Creative Graphic Designer <span class="sep">•</span> Visual Storyteller <span class="sep">•</span> Visual Brand Designer</p>
-      <p class="hero-intro reveal-up" style="--d:0.35s">I'm a 16-year-old graphic designer creating impactful posters, branding, thumbnails, social media creatives, and digital experiences that capture attention. My designs have generated over <strong>1 million views</strong> across YouTube and multiple social media platforms.</p>
-
-      <div class="hero-actions reveal-up" style="--d:0.45s">
-        <a href="#work" class="btn btn-primary" data-magnetic data-hover>View My Work</a>
-        <a href="#contact" class="btn btn-ghost" data-magnetic data-hover>Contact Me</a>
-        <a href="#" class="btn btn-text" data-magnetic data-hover>Download Resume <span class="arrow">↓</span></a>
-      </div>
-
-      <div class="hero-social reveal-up" style="--d:0.55s">
-        <a href="https://www.instagram.com/nxclxr_/" target="_blank" rel="noopener noreferrer" data-hover aria-label="Instagram">IG</a>
-        <a href="https://www.behance.net/nischalpng" target="_blank" rel="noopener noreferrer" data-hover aria-label="Behance">BE</a>
-        <a href="https://www.linkedin.com/in/nischal-adhikari77/" target="_blank" rel="noopener noreferrer" data-hover aria-label="LinkedIn">IN</a>
-        <a href="https://www.facebook.com/nischal.xyz" target="_blank" rel="noopener noreferrer" data-hover aria-label="Facebook">FB</a>
-      </div>
-    </div>
-
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-line"><i></i></div>
-    </div>
-
-    <div class="hero-crop tl"></div><div class="hero-crop tr"></div>
-    <div class="hero-crop bl"></div><div class="hero-crop br"></div>
-  </section>
-
-  <!-- MARQUEE -->
-  <section class="marquee" aria-label="Clients and collaborators">
-    <div class="marquee-track">
-      <span>Rich Samir</span><span>·</span><span>KhelkoKura</span><span>·</span><span>Nawayug English School</span><span>·</span><span>Yugal Meet</span><span>·</span><span>Guff Sansar</span><span>·</span><span>Freelance Clients</span><span>·</span>
-      <span>Rich Samir</span><span>·</span><span>KhelkoKura</span><span>·</span><span>Nawayug English School</span><span>·</span><span>Yugal Meet</span><span>·</span><span>Guff Sansar</span><span>·</span><span>Freelance Clients</span><span>·</span>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="section-head">
-      <span class="eyebrow reveal-up">FIG.02 — ABOUT</span>
-      <h2 class="reveal-up">The person behind the pixels</h2>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-visual reveal-up">
-        <div class="about-frame">
-          <div class="about-photo">
-            <div class="halftone"></div>
-            <span class="about-initials">N.A</span>
-          </div>
-          <div class="about-tag">PANTONE® 286 C <i></i></div>
-        </div>
-      </div>
-
-      <div class="about-copy">
-        <p class="reveal-up">Hi, I'm <strong>Nischal Adhikari</strong>, a passionate 16-year-old graphic designer from Nepal who specializes in visual communication, branding, poster design, and digital marketing creatives.</p>
-        <p class="reveal-up">I've worked with creators, schools, organizations, and media platforms, helping brands communicate through impactful visuals. My work has reached over one million viewers across YouTube and other digital platforms.</p>
-        <p class="reveal-up quote-line">"Great design doesn't just look good — it tells a story, builds trust, and creates results."</p>
-      </div>
-    </div>
-
-    <div class="stats-grid">
-      <div class="stat reveal-up"><span class="stat-num" data-count="16">0</span><span class="stat-label">Years Old</span></div>
-      <div class="stat reveal-up"><span class="stat-num" data-count="1" data-suffix="M+">0</span><span class="stat-label">Views Generated</span></div>
-      <div class="stat reveal-up"><span class="stat-num" data-count="100" data-suffix="+">0</span><span class="stat-label">Projects Completed</span></div>
-      <div class="stat reveal-up"><span class="stat-num" data-count="20" data-suffix="+">0</span><span class="stat-label">Clients</span></div>
-      <div class="stat reveal-up"><span class="stat-num" data-count="5" data-suffix="+">0</span><span class="stat-label">Years Learning Design</span></div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="experience" id="experience">
-    <div class="section-head">
-      <span class="eyebrow reveal-up">FIG.03 — EXPERIENCE</span>
-      <h2 class="reveal-up">Where the work has lived</h2>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-line"><i id="timelineFill"></i></div>
-
-      <div class="timeline-item reveal-up">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card" data-tilt>
-          <span class="tl-role">Graphic Designer</span>
-          <h3>Rich Samir</h3>
-          <p>Designed branding, YouTube thumbnails, promotional posters, and social media graphics.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal-up">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card" data-tilt>
-          <span class="tl-role">Graphic Designer</span>
-          <h3>KhelkoKura</h3>
-          <p>Created sports posters, tournament graphics, player announcements, and digital campaigns.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal-up">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card" data-tilt>
-          <span class="tl-role">Graphic Designer</span>
-          <h3>Nawayug English School</h3>
-          <p>Designed admission campaigns, educational posters, event branding, banners, certificates, and social media posts.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal-up">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card" data-tilt>
-          <span class="tl-role">Creative Designer</span>
-          <h3>Yugal Meet</h3>
-          <p>Created event promotions, branding assets, posters, and marketing materials.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal-up">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card" data-tilt>
-          <span class="tl-role">Graphic Designer</span>
-          <h3>Guff Sansar</h3>
-          <p>Designed engaging social media content and promotional visuals.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal-up">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card" data-tilt>
-          <span class="tl-role">Freelance Designer</span>
-          <h3>Independent Practice</h3>
-          <p>Worked with many creators, organizations, schools, businesses, and startups across Nepal.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORK -->
-  <section class="work" id="work">
-    <div class="section-head">
-      <span class="eyebrow reveal-up">FIG.04 — SELECTED WORK</span>
-      <h2 class="reveal-up">Featured Projects</h2>
-      <p class="section-sub reveal-up">A collection of posters, brand systems, thumbnails, and campaigns built for real clients and real results.</p>
-    </div>
-
-    <div class="filters reveal-up" id="filters">
-      <button class="filter-btn active" data-filter="all" data-hover>All</button>
-      <button class="filter-btn" data-filter="poster" data-hover>Poster Design</button>
-      <button class="filter-btn" data-filter="branding" data-hover>School Branding</button>
-      <button class="filter-btn" data-filter="thumbnail" data-hover>YouTube Thumbnails</button>
-      <button class="filter-btn" data-filter="social" data-hover>Social Media</button>
-      <button class="filter-btn" data-filter="event" data-hover>Event Posters</button>
-      <button class="filter-btn" data-filter="campaign" data-hover>Creative Campaigns</button>
-    </div>
-
-    <div class="work-grid" id="workGrid"><!-- injected by JS --></div>
-  </section>
-
-  <!-- CASE STUDY MODAL -->
-  <div class="case-study" id="caseStudy" role="dialog" aria-modal="true" aria-label="Project case study">
-    <div class="case-inner">
-      <button class="case-close" id="caseClose" data-hover>✕ Close</button>
-      <div class="case-media" id="caseMedia"></div>
-      <div class="case-info">
-        <span class="case-cat" id="caseCat"></span>
-        <h3 id="caseTitle"></h3>
-        <p id="caseDesc"></p>
-        <div class="case-meta">
-          <div><span>Client</span><strong id="caseClient"></strong></div>
-          <div><span>Tools</span><strong id="caseTools"></strong></div>
-          <div><span>Category</span><strong id="caseCategory"></strong></div>
-        </div>
-        <div class="case-process" id="caseProcess"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ACHIEVEMENTS -->
-  <section class="achievements" id="achievements">
-    <div class="section-head">
-      <span class="eyebrow reveal-up">FIG.05 — ACHIEVEMENTS</span>
-      <h2 class="reveal-up">Milestones worth marking</h2>
-    </div>
-    <div class="ach-grid">
-      <div class="ach-card reveal-up" data-tilt><span class="ach-icon">🏆</span><p>Generated 1 million+ views across YouTube &amp; social platforms</p></div>
-      <div class="ach-card reveal-up" data-tilt><span class="ach-icon">🎨</span><p>Designed hundreds of posters across sports, education &amp; events</p></div>
-      <div class="ach-card reveal-up" data-tilt><span class="ach-icon">🚀</span><p>Worked with well-known creators and organizations</p></div>
-      <div class="ach-card reveal-up" data-tilt><span class="ach-icon">📈</span><p>Increased client engagement through creative visuals</p></div>
-      <div class="ach-card reveal-up" data-tilt><span class="ach-icon">💡</span><p>Built strong, memorable visual identities from scratch</p></div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="section-head">
-      <span class="eyebrow reveal-up">FIG.06 — SERVICES</span>
-      <h2 class="reveal-up">What I can build for you</h2>
-    </div>
-    <div class="services-grid">
-      <div class="service-card reveal-up" data-tilt><span class="s-num">01</span><h3>Poster Design</h3><p>Eye-catching posters built to stop the scroll and hold attention.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">02</span><h3>Social Media Design</h3><p>Cohesive content systems for feeds, stories, and campaigns.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">03</span><h3>Logo Design</h3><p>Marks that are simple, distinct, and built to last.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">04</span><h3>Branding</h3><p>Full visual identity systems — color, type, and voice.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">05</span><h3>YouTube Thumbnails</h3><p>High-CTR thumbnails engineered to earn the click.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">06</span><h3>School Branding</h3><p>Admission campaigns, certificates, and campus identity.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">07</span><h3>Banner Design</h3><p>Web and print banners tuned for every placement.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">08</span><h3>Advertisement Design</h3><p>Promotional creative built around a clear message.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">09</span><h3>Print Design</h3><p>Production-ready files, correctly set for the press.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">10</span><h3>UI Design</h3><p>Clean interface layouts for sites and products.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">11</span><h3>Photo Manipulation</h3><p>Composite imagery for concept-driven creative.</p></div>
-      <div class="service-card reveal-up" data-tilt><span class="s-num">12</span><h3>Creative Direction</h3><p>End-to-end guidance from concept to final delivery.</p></div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="skills" id="skills">
-    <div class="section-head">
-      <span class="eyebrow reveal-up">FIG.07 — SKILLS</span>
-      <h2 class="reveal-up">Tools of the trade</h2>
-    </div>
-    <div class="skills-grid" id="skillsGrid"><!-- injected by JS --></div>
-  </section>
-
-  <!-- WHY CHOOSE ME -->
-  <section class="why" id="why">
-    <div class="section-head">
-      <span class="eyebrow reveal-up">FIG.08 — WHY WORK WITH ME</span>
-      <h2 class="reveal-up">Reasons clients come back</h2>
-    </div>
-    <div class="why-grid">
-      <div class="why-item reveal-up"><span>◆</span>Modern Designs</div>
-      <div class="why-item reveal-up"><span>◆</span>Fast Delivery</div>
-      <div class="why-item reveal-up"><span>◆</span>Creative Ideas</div>
-      <div class="why-item reveal-up"><span>◆</span>Attention to Detail</div>
-      <div class="why-item reveal-up"><span>◆</span>High Engagement Designs</div>
-      <div class="why-item reveal-up"><span>◆</span>Affordable Pricing</div>
-      <div class="why-item reveal-up"><span>◆</span>Friendly Communication</div>
-      <div class="why-item reveal-up"><span>◆</span>Client Satisfaction</div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials" id="testimonials">
-    <div class="section-head">
-      <span class="eyebrow reveal-up">FIG.09 — TESTIMONIALS</span>
-      <h2 class="reveal-up">What clients say</h2>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal-up" data-tilt><p>"Nischal consistently creates designs that immediately grab attention."</p><span>— Client, Sports Media</span></div>
-      <div class="testi-card reveal-up" data-tilt><p>"Professional work far beyond his age."</p><span>— Client, Education Sector</span></div>
-      <div class="testi-card reveal-up" data-tilt><p>"Highly recommended for posters and branding."</p><span>— Client, Events &amp; Promotions</span></div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="process" id="process">
-    <div class="section-head">
-      <span class="eyebrow reveal-up">FIG.10 — PROCESS</span>
-      <h2 class="reveal-up">How a project comes together</h2>
-    </div>
-    <div class="process-track">
-      <div class="process-line"></div>
-      <div class="process-step reveal-up"><span class="p-num">01</span><h4>Discussion</h4><p>Understand goals, audience, and constraints.</p></div>
-      <div class="process-step reveal-up"><span class="p-num">02</span><h4>Research</h4><p>Study references, competitors, and context.</p></div>
-      <div class="process-step reveal-up"><span class="p-num">03</span><h4>Idea &amp; Concept</h4><p>Sketch directions and pick the strongest one.</p></div>
-      <div class="process-step reveal-up"><span class="p-num">04</span><h4>Design</h4><p>Build the full visual in high fidelity.</p></div>
-      <div class="process-step reveal-up"><span class="p-num">05</span><h4>Revision</h4><p>Refine based on feedback.</p></div>
-      <div class="process-step reveal-up"><span class="p-num">06</span><h4>Final Delivery</h4><p>Hand off production-ready files.</p></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="contact-blob"></div>
-    <span class="eyebrow reveal-up">FIG.11 — CONTACT</span>
-    <h2 class="reveal-up">Let's build something<br><em>amazing</em> together.</h2>
-    <a href="mailto:nischaladk066@gmail.com" class="contact-email reveal-up" data-hover>nischaladk066@gmail.com</a>
-    <div class="contact-links reveal-up">
-      <a href="mailto:nischaladk066@gmail.com" data-hover data-magnetic>Email</a>
-      <a href="https://www.instagram.com/nxclxr_/" target="_blank" rel="noopener noreferrer" data-hover data-magnetic>Instagram</a>
-      <a href="https://www.facebook.com/nischal.xyz" target="_blank" rel="noopener noreferrer" data-hover data-magnetic>Facebook</a>
-      <a href="https://wa.me/977" target="_blank" rel="noopener noreferrer" data-hover data-magnetic>WhatsApp</a>
-      <a href="https://www.behance.net/nischalpng" target="_blank" rel="noopener noreferrer" data-hover data-magnetic>Behance</a>
-      <a href="https://www.linkedin.com/in/nischal-adhikari77/" target="_blank" rel="noopener noreferrer" data-hover data-magnetic>LinkedIn</a>
-      <a href="https://github.com" target="_blank" rel="noopener noreferrer" data-hover data-magnetic>GitHub</a>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <span>Designed &amp; Developed by Nischal Adhikari</span>
-    <span>© 2026 All Rights Reserved</span>
-  </div>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
+  <div class="progress" id="progress"></div>
+  <header class="topbar" id="topbar">
+    <nav class="container">
+      <a class="brand" href="#home" aria-label="Nischal Adhikari home">
+        <span class="brand-mark brand-photo"><img src="data:image/jpeg;base64,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
